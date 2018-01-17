@@ -262,6 +262,7 @@
 				}
 
 				var formData = getFormData();
+				console.log(formdata);
 
 				if (formData) {
 
@@ -315,8 +316,9 @@
 
 				$(".form-control").each(function(index,element) {
 					data[element.id] = element.value;
+console.log(element.id + " " + element.value);
 
-					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
+					if ((element.id !== "inputMessage") && (element.id !== "honeypot") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
 					{
 						$("#" + element.id).css( "background-color", "#f7f2d7" );
 						$("#formIncomplete").css( "display", "block" );

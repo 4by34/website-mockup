@@ -114,7 +114,7 @@
 					<div id="formIncomplete" style="display: none;">
 						<p style="font-size: 1.2rem; color: red;">Please complete highlighted fields.</p>
 					</div>
-					<form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec" style="margin-bottom: 2rem;">
+					<form id="gform" style="margin-bottom: 2rem;">
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" >
@@ -241,6 +241,70 @@
 	
 		<script type="text/javascript">
 
+// Variable to hold request
+var request;
+
+// Bind to the submit event of our form
+$("#gform").submit(function(event){
+
+    // Prevent default posting of form - put here to work in case of errors
+    event.preventDefault();
+
+    // Abort any pending request
+    if (request) {
+        request.abort();
+    }
+    // setup some local variables
+    var $form = $(this);
+
+    // Let's select and cache all the fields
+    var $inputs = $form.find("input, select, button, textarea");
+
+    // Serialize the data in the form
+    var serializedData = $form.serialize();
+
+    // Let's disable the inputs for the duration of the Ajax request.
+    // Note: we disable elements AFTER the form data has been serialized.
+    // Disabled form elements will not be serialized.
+    $inputs.prop("disabled", true);
+
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
+        type: "post",
+        data: serializedData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log("Hooray, it worked!");
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        // Log the error to the console
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown
+        );
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
+
+});
+
+
+
+
+
+
+
 			// $("#submitInfo").on( "click", function(event) {
 			// 	event.preventDefault()
 			// 	var formValues = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
@@ -277,39 +341,37 @@
 			// });
 
 
-function getFormData() {
-var form = document.getElementById("gform")
-var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
+// function getFormData() {
+// var form = document.getElementById("gform")
+// var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 
-				$(".form-control").each(function(index,element) {
-					data[element.id] = element.value;
+// 				$(".form-control").each(function(index,element) {
+// 					data[element.id] = element.value;
 
-					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
-					{
-						$("#" + element.id).css( "background-color", "#f7f2d7" );
-						$("#formIncomplete").css( "display", "block" );
-						formComplete = false;
-					}
-					else
-					{
-						$("#" + element.id).css( "background-color", "#fff" );
-					}
-				});
+// 					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
+// 					{
+// 						$("#" + element.id).css( "background-color", "#f7f2d7" );
+// 						$("#formIncomplete").css( "display", "block" );
+// 						formComplete = false;
+// 					}
+// 					else
+// 					{
+// 						$("#" + element.id).css( "background-color", "#fff" );
+// 					}
+// 				});
 
-  // add form-specific values into the data
-  data.formDataNameOrder = JSON.stringify(data);
-  data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
-  data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+//   // add form-specific values into the data
+//   data.formDataNameOrder = JSON.stringify(data);
+//   data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
+//   data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
 
-  console.log(data);
-  return data;
-}
+//   console.log(data);
+//   return data;
+// }
 
-function handleFormSubmit(event) {  // handles form submit withtout any jquery
-  event.preventDefault();           // we are submitting via xhr below
-  var data = getFormData();         // get the values submitted in the form
-
-
+// function handleFormSubmit(event) {  // handles form submit withtout any jquery
+//   event.preventDefault();           // we are submitting via xhr below
+//   var data = getFormData();         // get the values submitted in the form
 
 
 
@@ -322,83 +384,85 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
 
 
 
-  /* OPTION: Remove this comment to enable SPAM prevention, see README.md
-  if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
-    return false;
-  }
-  */
-
-  if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
-    // document.getElementById('email-invalid').style.display = 'block';
-    alert("email-invalid")
-    return false;
-  } else {
 
 
-$.ajax({
-        url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
-        type: "post",
-        data: data ,
-        success: function (response) {
-           // you will get response from your php page (what you echo or print)                 
+//   /* OPTION: Remove this comment to enable SPAM prevention, see README.md
+//   if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
+//     return false;
+//   }
+//   */
 
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-           console.log(textStatus, errorThrown);
-        }
-
-
-    });
+//   if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
+//     // document.getElementById('email-invalid').style.display = 'block';
+//     alert("email-invalid")
+//     return false;
+//   } else {
 
 
+// $.ajax({
+//         url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
+//         type: "post",
+//         data: data ,
+//         success: function (response) {
+//            // you will get response from your php page (what you echo or print)                 
+
+//         },
+//         error: function(jqXHR, textStatus, errorThrown) {
+//            console.log(textStatus, errorThrown);
+//         }
 
 
-    // var url = event.target.action;  //
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('POST', url);
-    // // xhr.withCredentials = true;
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    // xhr.onreadystatechange = function() {
-    //     console.log( xhr.status, xhr.statusText )
-    //     console.log(xhr.responseText);
-    //     // document.getElementById('gform').style.display = 'none'; // hide form
-    //     // document.getElementById('thankyou_message').style.display = 'block';
-
-
-
-				// 		$("#formIncomplete").css( "display", "none" );
-				// 		$("form").css( "display", "none" );
-				// 		$("#contactMsg").css( "display", "none" );
-				// 		$("#thankyoumsg").css( "display", "block" );
+//     });
 
 
 
 
+//     // var url = event.target.action;  //
+//     // var xhr = new XMLHttpRequest();
+//     // xhr.open('POST', url);
+//     // // xhr.withCredentials = true;
+//     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//     // xhr.onreadystatechange = function() {
+//     //     console.log( xhr.status, xhr.statusText )
+//     //     console.log(xhr.responseText);
+//     //     // document.getElementById('gform').style.display = 'none'; // hide form
+//     //     // document.getElementById('thankyou_message').style.display = 'block';
 
 
-    //     return;
-    // };
-    // // url encode form data for sending as post data
-    // var encoded = Object.keys(data).map(function(k) {
-    //     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    // }).join('&')
-    // xhr.send(encoded);
-  }
-}
 
-function validEmail(email) { // see:
-  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  return re.test(email);
-}
+// 				// 		$("#formIncomplete").css( "display", "none" );
+// 				// 		$("form").css( "display", "none" );
+// 				// 		$("#contactMsg").css( "display", "none" );
+// 				// 		$("#thankyoumsg").css( "display", "block" );
 
 
-function loaded() {
-  console.log('contact form submission handler loaded successfully');
-  // bind to the submit event of our form
-  var form = document.getElementById('gform');
-  form.addEventListener("submit", handleFormSubmit, false);
-};
-document.addEventListener('DOMContentLoaded', loaded, false);
+
+
+
+
+//     //     return;
+//     // };
+//     // // url encode form data for sending as post data
+//     // var encoded = Object.keys(data).map(function(k) {
+//     //     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+//     // }).join('&')
+//     // xhr.send(encoded);
+//   }
+// }
+
+// function validEmail(email) { // see:
+//   var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+//   return re.test(email);
+// }
+
+
+// function loaded() {
+//   console.log('contact form submission handler loaded successfully');
+//   // bind to the submit event of our form
+//   var form = document.getElementById('gform');
+//   form.addEventListener("submit", handleFormSubmit, false);
+// };
+// document.addEventListener('DOMContentLoaded', loaded, false);
 
 		</script>
 

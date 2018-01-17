@@ -117,34 +117,34 @@
 					<form style="margin-bottom: 2rem;">
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" style="background-color: #f3f4f5;">
+								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" >
 							</div>
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" style="background-color: #f3f4f5;">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" style="background-color: #f3f4f5;">
-							</div>
-							<div class="form-group col-md-6">
-								<input type="email" class="form-control" id="inputEmail" placeholder="Email" style="background-color: #f3f4f5;">
+								<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" >
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<select id="inputLocation" class="form-control" style="background-color: #f3f4f5;">
+								<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" >
+							</div>
+							<div class="form-group col-md-6">
+								<input type="email" class="form-control" id="inputEmail" placeholder="Email" >
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<select id="inputLocation" class="form-control">
 									<option selected>Select Location</option>
 									<option>London West</option>
 									<option>London East</option>
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputApptDate" placeholder="Preferred Date" style="background-color: #f3f4f5;">
+								<input type="text" class="form-control" id="inputApptDate" placeholder="Preferred Date" >
 							</div>							
 						</div>
 						<div class="form-group">
-							<select id="inputService" class="form-control" style="background-color: #f3f4f5;">
+							<select id="inputService" class="form-control" >
 								<option selected>Select Service</option>
                   					<option>Commission of Oaths</option>
                   					<option>Letter of Invitation</option>
@@ -160,7 +160,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" id="inputMessage" rows="3" placeholder="Message" style="background-color: #f3f4f5;"></textarea>
+							<textarea class="form-control" id="inputMessage" rows="3" placeholder="Message" ></textarea>
 						</div>
 						<p style="font-size: .8rem; line-height: 1.5;">To safeguard your personal information, please do not include any confidential or sensitive information in your message.</p>
 						
@@ -258,7 +258,7 @@
 				$(".form-control").each(function(index,element) {
 					formValues[element.id] = element.value;
 
-					if (!element.value && (element.id !== "inputLocation") && (element.id !== "inputService") && (element.id !== "inputMessage") )
+					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
 					{
 					  // google.script.run
 					  //   .withSuccessHandler(setResponse)
@@ -267,7 +267,10 @@
 						$("#formIncomplete").css( "display", "block" );
 						return true;						
 					}
-				
+					else
+					{
+						$("#" + element.id).css( "background-color", "#fff" );
+					}
 					// $("form").css( "display", "none" );
 					// $("#contactMsg").css( "display", "none" );
 					// $("#thankyoumsg").css( "display", "block" );

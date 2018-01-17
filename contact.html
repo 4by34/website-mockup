@@ -261,12 +261,7 @@
 
 				var formData = getFormData();
 
-				if (!formData.formComplete) {
-					alert(formData.formComplete)
-					alert("form incomplete!");
-				}
-				else
-				{
+				if (formData.formComplete) {
 					// setup some local variables
 					var $form = $(this);
 
@@ -387,8 +382,7 @@
 						// }
 
 						if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
-							// document.getElementById('email-invalid').style.display = 'block';
-							alert("email-invalid")
+							document.getElementById('email-invalid').style.display = 'block';
 							return false;
 						}
 					}

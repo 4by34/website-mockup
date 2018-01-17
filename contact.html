@@ -257,6 +257,13 @@ $("#gform").submit(function(event){
 
 
     var formData = getFormData();
+
+    if (!formData) {
+    	alert("form incomplete!");
+    	return false;
+    }
+
+
     // setup some local variables
     var $form = $(this);
 
@@ -286,7 +293,13 @@ $("#gform").submit(function(event){
     // Callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
         // Log a message to the console
-        console.log("Hooray, it worked!");
+        console.log("Data successfully transmitted.");
+
+		$("#formIncomplete").css( "display", "none" );
+		$("form").css( "display", "none" );
+		$("#contactMsg").css( "display", "none" );
+		$("#thankyoumsg").css( "display", "block" );
+
     });
 
     // Callback handler that will be called on failure
@@ -351,7 +364,7 @@ $("#gform").submit(function(event){
 
 function getFormData() {
 var form = document.getElementById("gform")
-var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
+var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": "true"};
 
 				$(".form-control").each(function(index,element) {
 					data[element.id] = element.value;
@@ -360,7 +373,7 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 					{
 						$("#" + element.id).css( "background-color", "#f7f2d7" );
 						$("#formIncomplete").css( "display", "block" );
-						formComplete = false;
+						return false;
 					}
 					else
 					{
@@ -375,6 +388,12 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 
   console.log(data);
   return data;
+}
+
+
+function validEmail(email) { // see:
+  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  return re.test(email);
 }
 
 // function handleFormSubmit(event) {  // handles form submit withtout any jquery
@@ -438,10 +457,7 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 
 
 
-// 				// 		$("#formIncomplete").css( "display", "none" );
-// 				// 		$("form").css( "display", "none" );
-// 				// 		$("#contactMsg").css( "display", "none" );
-// 				// 		$("#thankyoumsg").css( "display", "block" );
+
 
 
 
@@ -458,10 +474,7 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 //   }
 // }
 
-// function validEmail(email) { // see:
-//   var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-//   return re.test(email);
-// }
+
 
 
 // function loaded() {

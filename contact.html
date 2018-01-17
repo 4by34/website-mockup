@@ -258,11 +258,12 @@ $("#gform").submit(function(event){
 
     var formData = getFormData();
 
-    if (!formData) {
+    if (!formData.formComplete.value) {
     	alert("form incomplete!");
-    	return false;
     }
 
+
+alert(formData.formComplete.value)
 
     // setup some local variables
     var $form = $(this);
@@ -373,7 +374,7 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response"
 					{
 						$("#" + element.id).css( "background-color", "#f7f2d7" );
 						$("#formIncomplete").css( "display", "block" );
-						return false;
+						data["formComplete"] = false;
 					}
 					else
 					{

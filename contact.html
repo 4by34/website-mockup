@@ -263,7 +263,7 @@
 
 				if (formData.formComplete) {
 					// setup some local variables
-					if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
+					if( !validEmail(formData.inputEmail) ) {   // if email is not valid show error
 						document.getElementById('email-invalid').style.display = 'block';
 						return false;
 					}

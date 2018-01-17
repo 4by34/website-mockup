@@ -327,7 +327,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
   }
   */
 
-  if( !validEmail(formValues.inputEmail) ) {   // if email is not valid show error
+  if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
     // document.getElementById('email-invalid').style.display = 'block';
     alert("email-invalid")
     return false;
@@ -354,7 +354,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
 
 
 
-        
+
         return;
     };
     // url encode form data for sending as post data

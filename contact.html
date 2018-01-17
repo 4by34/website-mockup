@@ -114,7 +114,7 @@
 					<div id="formIncomplete" style="display: none;">
 						<p style="font-size: 1.2rem; color: red;">Please complete highlighted fields.</p>
 					</div>
-					<div id="formIncomplete" style="display: none;">
+					<div id="email-invalid" style="display: none;">
 						<p style="font-size: 1.2rem; color: red;">Email address is invalid.</p>
 					</div>
 					<form id="gform" style="margin-bottom: 2rem;">
@@ -263,18 +263,16 @@
 
 				if (formData.formComplete) {
 					// setup some local variables
+					if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
+						document.getElementById('email-invalid').style.display = 'block';
+						return false;
+					}
+
 					var $form = $(this);
 
-					// Let's select and cache all the fields
-					var $inputs = $form.find("input, select, button, textarea");
+					var $inputs = $form.find("input, select, button, textarea"); // Let's select and cache all the fields
 
-					// // Serialize the data in the form
-					// var serializedData = $form.serialize();
-
-					// console.log(serializedData)
-
-
-					// Let's disable the inputs for the duration of the Ajax request.
+					// Disable the inputs for the duration of the Ajax request.
 					// Note: we disable elements AFTER the form data has been serialized.
 					// Disabled form elements will not be serialized.
 					$inputs.prop("disabled", true);
@@ -317,48 +315,6 @@
 
 			});
 
-
-
-
-
-
-
-			// $("#submitInfo").on( "click", function(event) {
-			// 	event.preventDefault()
-			// 	var formValues = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
-			// 	var formComplete = true;
-
-			// 	$(".form-control").each(function(index,element) {
-			// 		formValues[element.id] = element.value;
-
-			// 		if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
-			// 		{
-			// 			$("#" + element.id).css( "background-color", "#f7f2d7" );
-			// 			$("#formIncomplete").css( "display", "block" );
-			// 			formComplete = false;
-			// 		}
-			// 		else
-			// 		{
-			// 			$("#" + element.id).css( "background-color", "#fff" );
-			// 		}
-			// 	});
-
-			// 		if (formComplete) 
-			// 		{
-			// 			$("#formIncomplete").css( "display", "none" );
-			// 			$("form").css( "display", "none" );
-			// 			$("#contactMsg").css( "display", "none" );
-			// 			$("#thankyoumsg").css( "display", "block" );
-
-			// 		}
-			// 	// onclick="google.script.run.writeForm(this.parentNode)"
-			// 			// google.script.run
-			// 			// .withSuccessHandler(setResponse)
-			// 			// .getData(a);
-
-			// });
-
-
 			function getFormData() {
 				var form = document.getElementById("gform")
 				var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": true};
@@ -375,23 +331,9 @@
 					else
 					{
 						$("#" + element.id).css( "background-color", "#fff" );
-
-
-						// if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
-						// 	return false;
-						// }
-
-						if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
-							document.getElementById('email-invalid').style.display = 'block';
-							return false;
-						}
+						
 					}
 				});
-
-			  // // add form-specific values into the data
-			  // data.formDataNameOrder = JSON.stringify(data);
-			  // data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
-			  // data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
 
 				console.log(data);
 				return data;
@@ -402,93 +344,6 @@
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 				return re.test(email);
 			}
-
-// function handleFormSubmit(event) {  // handles form submit withtout any jquery
-//   event.preventDefault();           // we are submitting via xhr below
-//   var data = getFormData();         // get the values submitted in the form
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   /* OPTION: Remove this comment to enable SPAM prevention, see README.md
-
-//   */
-
-//   if( !validEmail(data.inputEmail) ) {   // if email is not valid show error
-//     // document.getElementById('email-invalid').style.display = 'block';
-//     alert("email-invalid")
-//     return false;
-//   } else {
-
-
-// $.ajax({
-//         url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
-//         type: "post",
-//         data: data ,
-//         success: function (response) {
-//            // you will get response from your php page (what you echo or print)                 
-
-//         },
-//         error: function(jqXHR, textStatus, errorThrown) {
-//            console.log(textStatus, errorThrown);
-//         }
-
-
-//     });
-
-
-
-
-//     // var url = event.target.action;  //
-//     // var xhr = new XMLHttpRequest();
-//     // xhr.open('POST', url);
-//     // // xhr.withCredentials = true;
-//     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//     // xhr.onreadystatechange = function() {
-//     //     console.log( xhr.status, xhr.statusText )
-//     //     console.log(xhr.responseText);
-//     //     // document.getElementById('gform').style.display = 'none'; // hide form
-//     //     // document.getElementById('thankyou_message').style.display = 'block';
-
-
-
-
-
-
-
-
-
-
-//     //     return;
-//     // };
-//     // // url encode form data for sending as post data
-//     // var encoded = Object.keys(data).map(function(k) {
-//     //     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-//     // }).join('&')
-//     // xhr.send(encoded);
-//   }
-// }
-
-
-
-
-// function loaded() {
-//   console.log('contact form submission handler loaded successfully');
-//   // bind to the submit event of our form
-//   var form = document.getElementById('gform');
-//   form.addEventListener("submit", handleFormSubmit, false);
-// };
-// document.addEventListener('DOMContentLoaded', loaded, false);
 
 		</script>
 

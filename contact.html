@@ -254,16 +254,22 @@ $("#gform").submit(function(event){
     if (request) {
         request.abort();
     }
-    // setup some local variables
-    var $form = $(this);
 
-    // Let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
 
-    // Serialize the data in the form
-    var serializedData = $form.serialize();
+    var formData = getFormData();
+    // // setup some local variables
+    // var $form = $(this);
 
-    console.log(serializedData)
+    // // Let's select and cache all the fields
+    // var $inputs = $form.find("input, select, button, textarea");
+
+    // // Serialize the data in the form
+    // var serializedData = $form.serialize();
+
+    // console.log(serializedData)
+
+
+
 
     // Let's disable the inputs for the duration of the Ajax request.
     // Note: we disable elements AFTER the form data has been serialized.
@@ -274,7 +280,7 @@ $("#gform").submit(function(event){
     request = $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
         type: "post",
-        data: serializedData
+        data: formData
     });
 
     // Callback handler that will be called on success
@@ -343,33 +349,33 @@ $("#gform").submit(function(event){
 			// });
 
 
-// function getFormData() {
-// var form = document.getElementById("gform")
-// var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
+function getFormData() {
+var form = document.getElementById("gform")
+var data = {"timestamp": new Date(), "ipAddress": "", "referrer": ""};
 
-// 				$(".form-control").each(function(index,element) {
-// 					data[element.id] = element.value;
+				$(".form-control").each(function(index,element) {
+					data[element.id] = element.value;
 
-// 					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
-// 					{
-// 						$("#" + element.id).css( "background-color", "#f7f2d7" );
-// 						$("#formIncomplete").css( "display", "block" );
-// 						formComplete = false;
-// 					}
-// 					else
-// 					{
-// 						$("#" + element.id).css( "background-color", "#fff" );
-// 					}
-// 				});
+					if ((element.id !== "inputMessage") && ((element.value == "Select Location") || (element.value == "Select Service") || !element.value)) 
+					{
+						$("#" + element.id).css( "background-color", "#f7f2d7" );
+						$("#formIncomplete").css( "display", "block" );
+						formComplete = false;
+					}
+					else
+					{
+						$("#" + element.id).css( "background-color", "#fff" );
+					}
+				});
 
-//   // add form-specific values into the data
-//   data.formDataNameOrder = JSON.stringify(data);
-//   data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
-//   data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+  // // add form-specific values into the data
+  // data.formDataNameOrder = JSON.stringify(data);
+  // data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
+  // data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
 
-//   console.log(data);
-//   return data;
-// }
+  console.log(data);
+  return data;
+}
 
 // function handleFormSubmit(event) {  // handles form submit withtout any jquery
 //   event.preventDefault();           // we are submitting via xhr below

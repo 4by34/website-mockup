@@ -264,7 +264,7 @@
 				if (formData.formComplete) {
 					// setup some local variables
 					if( !validEmail(formData.inputEmail) ) {   // if email is not valid show error
-						document.getElementById('email-invalid').style.display = 'block';
+						$("#email-invalid").css( "display", "block" );
 						return false;
 					}
 
@@ -318,6 +318,9 @@
 			function getFormData() {
 				var form = document.getElementById("gform")
 				var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": true};
+
+				$("#formIncomplete").css( "display", "none" );
+				$("#email-invalid").css( "display", "none" );
 
 				$(".form-control").each(function(index,element) {
 					data[element.id] = element.value;

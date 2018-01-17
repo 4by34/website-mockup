@@ -241,85 +241,83 @@
 	
 		<script type="text/javascript">
 
-// Variable to hold request
-var request;
+			// Variable to hold request
+			var request;
 
-// Bind to the submit event of our form
-$("#gform").submit(function(event){
+			// Bind to the submit event of our form
+			$("#gform").submit(function(event){
 
-    // Prevent default posting of form - put here to work in case of errors
-    event.preventDefault();
+				// Prevent default posting of form - put here to work in case of errors
+				event.preventDefault();
 
-    // Abort any pending request
-    if (request) {
-        request.abort();
-    }
-
-
-    var formData = getFormData();
-
-    if (!formData.formComplete.value) {
-    	alert("form incomplete!");
-    }
+				// Abort any pending request
+				if (request) {
+					request.abort();
+				}
 
 
-alert(formData.formComplete.value)
+				var formData = getFormData();
 
-    // setup some local variables
-    var $form = $(this);
+				if (!formData.formComplete) {
+					alert(formData.formComplete)
+					alert("form incomplete!");
+				}
+				else
+				{
+					// setup some local variables
+					var $form = $(this);
 
-    // Let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
+					// Let's select and cache all the fields
+					var $inputs = $form.find("input, select, button, textarea");
 
-    // // Serialize the data in the form
-    // var serializedData = $form.serialize();
+					// // Serialize the data in the form
+					// var serializedData = $form.serialize();
 
-    // console.log(serializedData)
-
-
+					// console.log(serializedData)
 
 
-    // Let's disable the inputs for the duration of the Ajax request.
-    // Note: we disable elements AFTER the form data has been serialized.
-    // Disabled form elements will not be serialized.
-    $inputs.prop("disabled", true);
+					// Let's disable the inputs for the duration of the Ajax request.
+					// Note: we disable elements AFTER the form data has been serialized.
+					// Disabled form elements will not be serialized.
+					$inputs.prop("disabled", true);
 
-    // Fire off the request to /form.php
-    request = $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
-        type: "post",
-        data: formData
-    });
+					// Fire off the request to /form.php
+					request = $.ajax({
+						url: "https://script.google.com/macros/s/AKfycbxGqTOOCfXJXI5HD5GxQfz7Cns9Pu4CElwrDDp0r8v8Ur5kefxq/exec",
+						type: "post",
+						data: formData
+					});
 
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Data successfully transmitted.");
+					// Callback handler that will be called on success
+					request.done(function (response, textStatus, jqXHR){
+						// Log a message to the console
+						console.log("Data successfully transmitted.");
 
-		$("#formIncomplete").css( "display", "none" );
-		$("form").css( "display", "none" );
-		$("#contactMsg").css( "display", "none" );
-		$("#thankyoumsg").css( "display", "block" );
+						$("#formIncomplete").css( "display", "none" );
+						$("form").css( "display", "none" );
+						$("#contactMsg").css( "display", "none" );
+						$("#thankyoumsg").css( "display", "block" );
 
-    });
+					});
 
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
+					// Callback handler that will be called on failure
+					request.fail(function (jqXHR, textStatus, errorThrown){
+						// Log the error to the console
+						console.error(
+						"The following error occurred: "+
+						textStatus, errorThrown
+						);
+					});
 
-    // Callback handler that will be called regardless
-    // if the request failed or succeeded
-    request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
-    });
+					// Callback handler that will be called regardless
+					// if the request failed or succeeded
+					request.always(function () {
+					// Reenable the inputs
+						$inputs.prop("disabled", false);
+					});
+				}
 
-});
+			});
 
 
 
@@ -363,9 +361,9 @@ alert(formData.formComplete.value)
 			// });
 
 
-function getFormData() {
-var form = document.getElementById("gform")
-var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": "true"};
+			function getFormData() {
+				var form = document.getElementById("gform")
+				var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": "true"};
 
 				$(".form-control").each(function(index,element) {
 					data[element.id] = element.value;
@@ -382,20 +380,20 @@ var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response"
 					}
 				});
 
-  // // add form-specific values into the data
-  // data.formDataNameOrder = JSON.stringify(data);
-  // data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
-  // data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+			  // // add form-specific values into the data
+			  // data.formDataNameOrder = JSON.stringify(data);
+			  // data.formGoogleSheetName = form.dataset.sheet || "contactUs"; // default sheet name
+			  // data.formGoogleSendEmail = form.dataset.email || ""; // no email by default
 
-  console.log(data);
-  return data;
-}
+				console.log(data);
+				return data;
+			}
 
 
-function validEmail(email) { // see:
-  var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  return re.test(email);
-}
+			function validEmail(email) { // see:
+				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+				return re.test(email);
+			}
 
 // function handleFormSubmit(event) {  // handles form submit withtout any jquery
 //   event.preventDefault();           // we are submitting via xhr below

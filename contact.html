@@ -9,6 +9,7 @@
 
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,7 +101,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div id="thankyoumsg" style="display: none;">
-						<p style="font-size: 1rem;">Thank you for your request. You will be contacted within 24 hours.</p>
+						<p style="font-size: 1rem;">Thank you for your enquiry. You will be contacted within 24 hours.</p>
 						<h5 style="padding-top: 1.2rem; font-weight: bold;">Please Note:</h5>
 						<p>1. Do not sign or date documents prior to your appointment. During the appointment, your identity will be verified and signature witnessed.</p>
 						<p>2. Complete all documents prior to appointment except for signatures and dates.</p>
@@ -112,7 +113,7 @@
 						<p style="font-size: 1rem;">If you would like to book an appointment or have any questions about our services, please complete the form below. Appointments are available days, evenings and weekends, and on urgent or short notice.</p>
 					</div>
 					<div id="formIncomplete" style="display: none;">
-						<p style="font-size: 1rem; color: red;">Please complete highlighted fields.</p>
+						<p style="font-size: 1rem; color: red;">Please complete the highlighted fields.</p>
 					</div>
 					<div id="email-invalid" style="display: none;">
 						<p style="font-size: 1rem; color: red;">Email address is invalid.</p>
@@ -143,7 +144,7 @@
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputApptDate" placeholder="Preferred Date" >
+								<input type="text" name="date" class="form-control" id="datepicker" placeholder="Preferred Date" >
 							</div>							
 						</div>
 						<div class="form-group">
@@ -163,9 +164,10 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" id="inputMessage" rows="3" placeholder="Message" ></textarea>
+							<textarea class="form-control" id="inputMessage" rows="3" maxlength="250" placeholder="Message" ></textarea>
+							<div id="textRemaining" class="text-right">250 characters remaining</div>
 						</div>
-						<p style="font-size: .8rem; line-height: 1.5;">To safeguard your personal information, please do not include any confidential or sensitive information in your message.</p>
+						<p style="font-size: 1rem; line-height: 1.5;">To safeguard your personal information, please do not include any confidential or sensitive information in your message.</p>
 						
 						<button type="submit" class="btn btn-primary btn-block" id="submitInfo">Request Appointment</button>
 					</form>
@@ -236,6 +238,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="./js/bootstrap.js"></script>
 
 		<!-- ===============
@@ -243,6 +246,8 @@
 		================ -->
 	
 		<script type="text/javascript">
+
+			$("#datepicker").datepicker();
 
 			// Variable to hold request
 			var request;
@@ -347,6 +352,28 @@
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 				return re.test(email);
 			}
+
+
+			$(document).ready(function () {
+
+				$('#inputMessage').keypress(function (event) {
+					var max = 250;
+					var len = $(this).val().length;
+
+					if (len >= max) {
+						event.preventDefault();
+					}
+				});
+
+			  $('#inputMessage').keyup(function (event) {
+					var max = 250;
+					var len = $(this).val().length;
+					var char = max - len;
+
+					$('#textRemaining').text(char + ' characters remaining');
+				});
+
+			});
 
 		</script>
 

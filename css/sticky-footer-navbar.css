@@ -55,7 +55,7 @@ body {
 
 span, span small {
   font-weight: lighter; 
-  color:#d0d0d0;
+  /*color:#d0d0d0;*/
 }
 
 .activateStick {

@@ -347,9 +347,6 @@
 				var form = document.getElementById("gform")
 				var data = {"timestamp": new Date(), "response": "", "formComplete": true};
 
-				data.formDataNameOrder = JSON.stringify(fields);
-				data.dataSendEmailTo = form.dataset.email
-
 				$("#formIncomplete").css( "display", "none" );
 				$("#email-invalid").css( "display", "none" );
 
@@ -368,6 +365,9 @@
 						
 					}
 				});
+
+				data.formDataNameOrder = JSON.stringify(data);
+				data.dataSendEmailTo = form.dataset.email
 
 				console.log(data);
 				return data;

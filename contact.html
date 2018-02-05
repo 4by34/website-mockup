@@ -133,7 +133,7 @@
 					<div id="email-invalid" style="display: none;">
 						<p style="font-size: 1rem; color: red;">Email address is invalid.</p>
 					</div>
-					<form id="gform">
+					<form id="gform" data-email="jannelcinc@hotmail.com>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" >
@@ -345,7 +345,10 @@
 
 			function getFormData() {
 				var form = document.getElementById("gform")
-				var data = {"timestamp": new Date(), "ipAddress": "", "referrer": "", "response": "", "formComplete": true};
+				var data = {"timestamp": new Date(), "response": "", "formComplete": true};
+
+				data.formDataNameOrder = JSON.stringify(fields);
+				data.dataSendEmailTo = form.dataset.email
 
 				$("#formIncomplete").css( "display", "none" );
 				$("#email-invalid").css( "display", "none" );

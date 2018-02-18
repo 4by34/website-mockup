@@ -32,7 +32,7 @@
 			 @-ms-viewport {width: device-width;}
     	</style>
 
-		<script type="application/ld+json">
+<!-- 		<script type="application/ld+json">
 			{
 			"@context": "http://schema.org",
 			"@type": "Organization",
@@ -40,7 +40,7 @@
 			"logo": "http://www.mcbridenotaryservices.ca/images/Logo2_Black.png",
 			"contactPoint": [{
 				"@type": "ContactPoint",
-				"telephone": "+1-416-919-5273",
+				"telephone": "+14169195273",
 				"contactType": "customer service",
 				"areaServed": "CA",
 				"availableLanguage": [
@@ -49,7 +49,66 @@
 					]
 				}]
 			}
-		</script>
+		</script> -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Notary",
+  "url": "https://4by34.github.io/website-mockup",
+  "logo": "http://www.mcbridenotaryservices.ca/images/Logo2_Black.png",
+"contactPoint": [{
+	"@type": "ContactPoint",
+	"telephone": "+14169195273",
+	"contactType": "customer service",
+	"areaServed": "CA",
+	"availableLanguage": [
+		"English",
+		"French"
+		]
+	}],
+  "image": [
+    "https://4by34.github.io/website-mockup/image/Logo2_Black.png",
+    "https://4by34.github.io/website-mockup/image/Logo_Black.png"
+   ],
+  "@id": "https://4by34.github.io/website-mockup",
+  "name": "McBride Notary Services",
+  // "address": {
+  //   "@type": "PostalAddress",
+  //   "streetAddress": "148 W 51st St",
+  //   "addressLocality": "New York",
+  //   "addressRegion": "NY",
+  //   "postalCode": "10019",
+  //   "addressCountry": "US"
+  // },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.976455,
+    "longitude": -81.290103
+  },
+  "url": "https://4by34.github.io/website-mockup/locations",
+  "telephone": "+14169195273",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+	      "Monday",
+	      "Tuesday",
+	      "Wednesday",
+	      "Thursday",
+	      "Friday",
+	      "Saturday",
+	      "Sunday"
+      ],
+      "opens": "9:00",
+      "closes": "20:00"
+    }
+  ],
+  "menu": "http://www.example.com/menu",
+  "acceptsReservations": "True"
+}
+</script>
+
 
 	</head>
 

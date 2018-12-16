@@ -97,7 +97,7 @@ app.get('/', function(request, response) {
    mu.compileAndRender('templates/home.mustache').pipe(response);
 });
 
-app.get('/index', function(request, response) {
+app.get('/index.html', function(request, response) {
    mu.compileAndRender('templates/index.mustache').pipe(response);
 });
 

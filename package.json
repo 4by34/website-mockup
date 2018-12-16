@@ -1,11 +1,9 @@
 {
-  "name": "fourbythirtyfour",
+  "name": "website-mockup",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.13.2",
     "express": "^4.13.1",
-    "google-spreadsheet": "^1.0.1",
-    "mu2": "0.5.x",
-    "rets-client": "~1.1.24"
+    "mu2": "0.5.x"
   }
 }

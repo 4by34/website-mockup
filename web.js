@@ -1,5 +1,4 @@
 console.log('starting...');
-// require('./rets.js');
 
 var express = require('express');
 var mu = require('mu2');

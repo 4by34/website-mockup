@@ -1,50 +1,46 @@
-    <header class="fixed-top" style="background-color: #fff; height: 30px; padding-top: 3px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-9 text-left">
-            <a href="tel:+1-{{companyPhone}}" style="color: #343a40; font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true" style="color: #343a40;"></span> Call/Text {{companyPhone}}</a>
-          </div>
-          <div class="col-3 text-right">
-            <a style="padding: 0; color: #343a40; padding-right: .5rem;" href="#">Français</a>
-          </div>
-        </div>
-      </div>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark activateStick" style="border-bottom: 3px solid #fff; border-top: 3px solid #fff;height: 72px">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="top: 30px;">
-      <div class="container d-flex justify-content-between">
-        <a class="navbar-brand" href="index.html" style="padding-left: 0px; margin-right: 0px; font-size: 1.1rem;"><span style="font-family: 'Playfair Display', sans-serif; font-weight: bold; color: #fff;">MNS</span> | {{companyName}}</a>
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav" style="margin-left: auto;">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="locations.html">Locations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services & Fees</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-
-        <button class="navbar-toggler" style="font-size: 1.1rem;" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <div style="width: 300px;">
+        <a class="navbar-brand hideLogo" href="#">
+          <img src="./images/whiteScale.png" height="30" class="d-inline-block align-top" alt=""> Annie Provost <span>| Lawyer</span>
+        </a>
       </div>
+
+      <div class="collapse navbar-collapse justify-content-md-center" id="">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#scrollServices">Services<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollAbout">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollContact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollLocation">Location</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav text-right" style="width: 300px;">
+        <li class="nav-item" style="width: 100%;">
+          <a class="nav-link" href="#" style="padding-right: 10px;">FR</a>
+        </li>
+      </ul>
     </nav>
 
     <script>
     (function() {
       var currentPage = window.location.pathname.split("/").pop();
+      if (!currentPage) {currentPage = "index.html";}
 
-      document.querySelector("#navbarContent a[href='" + currentPage + "']")
-      .className = "nav-link active";
+      var anchorElement = document.querySelector("#navbarContent a[href='" + currentPage + "']");
+      if (!anchorElement) {return;}
+
+      anchorElement.className = "nav-link active";
     }())
     </script>

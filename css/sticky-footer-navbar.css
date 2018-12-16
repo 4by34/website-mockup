@@ -1,18 +1,43 @@
 /* Sticky footer styles
 -------------------------------------------------- */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-phone:before {
+  content: "\e145";
+}
+
+.glyphicon-envelope:before {
+  content: "\2709";
+}
+
 html {
   position: relative;
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 195px;
-  padding-bottom: 3.5rem;
+  margin-bottom: 250px;
 }
 
-.navbar {
-  margin-bottom: 5px;
-  border-radius: 0; 
+.bg-dark {
+  background-color: #1f2849 !important;
 }
 
 .navbar-brand {
@@ -23,44 +48,20 @@ body {
   padding-right: 0;
 }
 
-.carousel-indicators .active {
-  background-color: #000;
-}
-
-.marketing img {
-  width: 160px;
-  height: 160px;
-}
-
-.carousel-indicators li {
-  border-color: grey;
-}
-
 #myCarousel h1 {
   margin-bottom: 80px;
 }
 
-.dropdown-header {
-  font-size: 14px;
-}
-
- .marketing .col-lg-4 {
-  margin-bottom: 20px;
- }
-
 .navbar-default {
   background-color: #222;
- /* border-color: #000000;*/
 }
 
 span, span small {
   font-weight: lighter; 
-  /*color:#d0d0d0;*/
 }
 
 .activateStick {
   background-color: #fff;
-  margin-bottom: 30px;
 }
 
 .addShadow {
@@ -69,23 +70,20 @@ span, span small {
   -webkit-box-shadow: 5px 5px 10px #888888;
 }
 
-.stickyBody {
-  padding-bottom: 57px;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 195px;
-background-color: #222;
+  height: 250px;
+  background-color: #1f2849;
+  border-top: 5px solid #ed9b09;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .footer p { 
   color: #9d9d9d;
 }
-
 
 .navbar-fixed-top {
 
@@ -93,30 +91,40 @@ background-color: #222;
   -webkit-opacity: .8;
   filter:alpha(opacity=80);
 }
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
-body > .container {
-  padding: 0 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
+.stickyBody {
+  padding-bottom: 57px;
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.hideLogo {
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0.5s linear,opacity 0.5s linear;
 }
 
-code {
-  font-size: 80%;
+.showLogo {
+  visibility: visible;
+  opacity:1;
+  transition:visibility 0.8s linear,opacity 0.8s linear;
 }
 
-.hideElement {
-  display: none;
+.imgServices:hover { 
+  opacity:.2;
+  transition:opacity 1s linear;
 }
 
-.contactUsForm {
-  display: block;
+.bannerBG {
+  height: 100%;
+  width: 20px;
 }
+
+.bannerLogo {
+  display:  none;
+  width:  100%
+}
+
+.slide {
+  transition: transform 2s;
+  transform: scaleX(20);
+}
+    

@@ -4,6 +4,9 @@
   "dependencies": {
     "body-parser": "^1.13.2",
     "express": "^4.13.1",
-    "mu2": "0.5.x"
+    "google-spreadsheet": "^1.1.4",
+    "googleapis": "^27.0.0",
+    "mu2": "0.5.x",
+    "mustache": "^3.0.1"
   }
 }

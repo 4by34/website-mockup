@@ -1,0 +1,13 @@
+{
+  "spreadsheetId": "1qBQSBSmqj6KKkU2Ma9VswWzlE9La0NraGtAU2tXIyzw",
+  "namedRanges": [
+    {
+      "type": "fields",
+      "name": "siteData_EN"
+    },
+    {
+      "type": "fields",
+      "name": "siteData_FR"
+    }
+  ]
+}

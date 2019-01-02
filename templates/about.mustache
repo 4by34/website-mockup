@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>About | SPAP</title>
+		<title>{{nav3}} | SPAPPC</title>
 
 		<!-- ===============
 			Page Head Info
@@ -21,40 +21,54 @@
 			Page Header
 		================ -->
 
+		{{> standardHeader}}
 		{{> header}}
 
 		<!-- ===============
 			END Page Header
 		================ -->
+           
 
-		<div class="container" style="margin-top: 97px; padding-top: 3rem;">
-			<div class="row">
-				<div class="col-md-4">
-					<figure class="figure">
-						<img src="./images/headShotBio_645x959.jpg" class="figure-img img-fluid rounded" alt="" />
-					</figure>
-				</div>
-				<div class="col-md-8">
+		<div class="container" style="margin-top: 72px; padding-bottom: 2rem;">
+	      <div class="row">
+	        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url('./images/annie_provost_banner2.jpg'); background-size: cover; height: 25rem;">
+	          <div class="col-md-7 px-0">
+	            <h1 class="display-4 font-italic">{{ ownerName }} <span style="font-size: 2rem;">Lawyer, B.A., LL.B.</span></h1>
+	            <hr style="border-top: 1px solid rgba(255, 255, 255, 0.5);">
+	            <p class="lead my-3">Sed posuere consectetur est at lobortis. Cras mattis consectetur , purus sit amet fermentum. Mmollis euismod. Cum sociis natoque penatibus et magnis. Aenean lacinia bibendum Null.</p>
 
-				</div>
-			</div>
-			<hr style="margin: 20px 0;">
-			<div class="row">
-				<div class="col-md-4">
-					<h5>Education</h5>
-					<p style="margin-bottom: 0;">University of Ottawa, 2006</p>
-					<p style="margin-bottom: 0;">Wilfrid Laurier University, 2003</p>
-				</div>
-				<div class="col-md-4">
-					<h5>Areas of Practice</h5>
-					<p style="margin-bottom: 0;">Workers’ Compensation Law</p>
-				</div>
-				<div class="col-md-4">
-					<h5>Professional Associations</h5>
-					<p style="margin-bottom: 0;">Law Society of Upper Canada</p>
-				</div>
-			</div>
-		</div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="row" style="padding-top: 1rem; padding-bottom: 1rem;">
+	        <div class="col-md-12">
+	            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+	            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+	            <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	            <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+	        </div>
+	      </div>
+
+	      <hr style="margin: 0;">    
+	      <div class="row">
+	        <div class="col-lg-4" style="margin-top: 20px;">
+	          <p class="lead" style="font-weight: 500; font-size: 1rem; margin-bottom: .5rem;">Areas of Practice</p>
+	            <p class="lead" style="margin-bottom: 0; font-size: 1rem;">Family Law</p>
+	        </div>
+	        <div class="col-lg-5" style="margin-top: 20px;">
+	          <p class="lead" style="font-weight: 500; font-size: 1rem; margin-bottom: .5rem;">Professional Associations</p>
+	            <p class="lead" style="margin-bottom: 0; font-size: 1rem;">Law Society of Ontario</p>
+	            <p class="lead" style="margin-bottom: 0; font-size: 1rem;">Ontario Bar Association</p>
+	        </div>
+	        <div class="col-lg-3" style="margin-top: 20px;">
+	          <p class="lead" style="font-weight: 500; font-size: 1rem; margin-bottom: .5rem;">Education</p>
+	            <p class="lead" style="margin-bottom: 0; font-size: 1rem;">University of Ottawa, LL.B., 2006</p>
+	        </div>
+	      </div>
+	    </div>
+
+
 
 		<!-- ===============
 		   Page Footer

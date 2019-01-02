@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>{{nav1}} | SPAP</title>
+		<title>{{nav1}} | SPAPPC</title>
 
 		<!-- ===============
 			Page Head Info
@@ -39,6 +39,7 @@
 			</div>
 		</div>
 
+		{{> indexHeader}}
 		{{> header}}
 
 		<div class="mainBody">
@@ -66,7 +67,7 @@
 					<div class="col-md-9">
 						<h2 style="margin-bottom: 2rem;">{{ownerName}} <span style="color: #9e9d9d;">| {{ownerTitle2}}</span></h2>
 						<p>{{ownerBio}}</p>
-						<strong>Read more</strong>
+						<a href="./About.html"><strong>Read more</strong></a>
 					</div>
 				</div>
 			</div>
@@ -87,6 +88,43 @@
 		================ -->
 
 		{{> script}}
+
+ 		<script type="text/javascript">
+
+			jQuery(document).ready(function() {
+
+				jQuery(".bannerLogo").fadeIn( 4000 );
+
+				jQuery(".bannerBG").addClass("slide", function() {
+			      jQuery(".bannerLogo").fadeIn( 4000 );
+			 	});
+
+		  		var navOffset = jQuery(".activateStick").offset().top;
+
+				jQuery(window).scroll(function() {
+				var scrollPos = jQuery(window).scrollTop();
+
+				jQuery(".navbar-collapse").removeClass("in");
+
+				if (scrollPos >= navOffset) {
+				  jQuery(".activateStick").addClass("fixed-top");
+				  jQuery(".pageHeader").addClass("stickyBody");
+				  jQuery(".navbar-brand").addClass("showLogo");
+				  // jQuery(".navbar-brand").fadeIn("slow");
+				  jQuery(".navbar-brand").removeClass("hideLogo");
+				  jQuery(".mainBody").css("margin-top", "72px");
+				} else {
+				  jQuery(".activateStick").removeClass("fixed-top");
+				  jQuery(".pageHeader").removeClass("stickyBody");
+				  jQuery(".navbar-brand").addClass("hideLogo");
+				  jQuery(".navbar-brand").removeClass("showLogo");
+				  jQuery(".mainBody").css("margin-top", "0");
+				}
+
+		  		});
+			});
+
+  		</script>
 
 		<!-- ===============
 		   END Page Script Info

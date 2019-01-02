@@ -28,6 +28,23 @@
   content: "\2709";
 }
 
+.glyphicon-phone-alt:before {
+  content: "\e183";
+}
+
+.btn-outline-primary {
+  color: #1f2849;
+  background-color: transparent;
+  background-image: none;
+  border-color: #1f2849;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #1f2849;
+  border-color: #1f2849;
+}
+
 html {
   position: relative;
   min-height: 100%;

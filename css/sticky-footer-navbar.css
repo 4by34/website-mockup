@@ -168,8 +168,4 @@ span, span small {
   display:  none;
 }
 
-.slide {
-  transition: transform 2s;
-  transform: scaleX(20);
-}
     

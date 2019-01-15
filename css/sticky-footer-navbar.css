@@ -57,16 +57,44 @@ body {
   background-color: #1f2849 !important;
 }
 
+.carousel-item {
+  background-color: #434656;
+}
+
+.navbar {
+    border-bottom: 3px solid #fff; 
+    border-top: 3px solid #fff;
+    padding: 0.5rem .75rem;
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+}
+
 .navbar-brand {
-    padding: 10px 10px
+    padding: 10px 0px;
+    margin-right: 0;
 }
 
 .navbar-collapse {
   padding-right: 0;
 }
 
-#myCarousel h1 {
+/*#myCarousel h1 {
   margin-bottom: 80px;
+}*/
+
+#nav-list {
+  margin-left: -135px;
+}
+
+.french-link {
+  padding-right: 10px; 
+  padding-left: 10px;
+}
+
+.carousel-caption {
+  padding: 0px;
 }
 
 .navbar-default {
@@ -106,7 +134,7 @@ span, span small {
   color: #9d9d9d;
 }
 
-.navbar-fixed-top {
+.fade {
 
   -moz-opacity: .8;
   -webkit-opacity: .8;
@@ -129,6 +157,12 @@ span, span small {
   transition:visibility 0.8s linear,opacity 0.8s linear;
 }
 
+.showLogoSlow {
+  visibility: visible;
+  opacity:1;
+  transition:visibility 3s linear,opacity 3s linear;
+}
+
 .containerServices:hover div.imgServices { 
   opacity:.2;
   transition:opacity .6s linear;
@@ -142,6 +176,10 @@ span, span small {
   display: table; 
   height: 100%; 
   width: 100%;
+}
+
+#banner {
+  height: 75%;
 }
 
 .containerServices .display-4 {
@@ -158,14 +196,9 @@ span, span small {
   background-size: cover;
 }
 
-
-.bannerBG {
-  height: 100%;
-  width: 20px;
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
-
-.bannerLogo {
-  display:  none;
-}
-
     

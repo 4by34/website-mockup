@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{{nav1}} | SPAPPC</title>
+
+		<!-- ===============
+			Page Head Info
+		================ -->		
+
+		{{> head}}
+
+		<!-- ===============
+			END Page Head Info
+		================ -->
+
+	</head>
+
+	<body>
+
+		<div class="carousel-inner text-center">
+			<div class="carousel-item active">
+				<img class="first-slide d-block w-100" src="./images/indexBanner16002.png" alt="{{ownerName}}">
+				<div class="carousel-caption d-block absolute-center">
+					<img id="banner" class="hideLogo first-slide d-block absolute-center" src="./images/Logo_WHT.png" alt="{{companyName}}">
+				</div>
+			</div>
+		</div>
+
+		{{> indexHeader}}
+		
+		{{> header}}
+
+		<div>
+			<div class="position-relative overflow-hidden text-center bg-light">  
+				<div class="row" style="width: 100%; margin: 0; background-color: #1f2849;" >
+					<div class="col-sm-4 containerServices" style="border: 1px #fff solid; height: 400px;">
+						<div class="imgServices" style="background-image: url('./images/home_family.jpg'); background-position: center;">
+						</div>
+						<a class="card-img-overlay" href="./Services.html">
+							<h1 class="display-4"><strong>{{services1}}</strong></h1>
+						</a>
+					</div>
+
+					<div class="col-sm-4 containerServices" style="border: 1px #fff solid; height: 400px;">
+						<div class="imgServices" style="background-image: url('./images/home_wills.jpg'); background-position: center;">
+						</div>
+						<a class="card-img-overlay" href="./Services.html">
+							<h1 class="display-4"><strong>{{services2}}</strong></h1>
+						</a>
+					</div>
+
+					<div class="col-sm-4 containerServices" style="border: 1px #fff solid; height: 400px;">
+						<div class="imgServices" style="background-image: url('./images/home_notary.jpg'); background-position: center;">
+						</div>
+						<a class="card-img-overlay" href="./Services.html">
+							<h1 class="display-4"><strong>{{services3}}</strong></h1>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div style="background-color: #fff;">
+			<div class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+				<div class="row">
+					<div class="col-lg-3 text-center" style="margin-bottom: 1rem;">
+						<img class="rounded" src="./images/Annie.jpg" alt="{{ownerName}}" height="300">
+					</div>
+					<div class="col-lg-8 ml-md-auto" style="padding-left: 1rem;">
+						<h2 style="margin-bottom: 1rem;">{{ownerName}} <span style="color: #9e9d9d;">| {{ownerTitle2}}</span></h2>
+						<p>{{ownerBio}}</p>
+						<a href="./About.html" style="color: #ed9b09;"><strong>{{bioMore}}</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ===============
+		   Page Footer
+		================ -->
+
+		{{> footer}}
+
+		<!-- ===============
+		   END Page Footer
+		================ -->
+
+		<!-- ===============
+		   Page Script Info
+		================ -->
+
+		{{> script}}
+		<script src="./js/index.js"></script>
+
+		<!-- ===============
+		   END Page Script Info
+		================ -->
+	
+	</body>
+</html>

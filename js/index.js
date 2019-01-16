@@ -1,12 +1,5 @@
 jQuery(document).ready(function() {
 
-	function show_banner() {
-		jQuery("#banner").removeClass("hideLogo");
-		jQuery("#banner").addClass("showLogoSlow");
-	};
-
-	window.setTimeout( show_banner, 800 );
-
 	var navOffset = jQuery(".activateStick").offset().top;
 
 	jQuery(window).scroll(function() {
@@ -29,4 +22,11 @@ jQuery(document).ready(function() {
 		}
 
 	});
+
+	function show_banner() {
+		jQuery("#banner").removeClass("hideLogo");
+		jQuery("#banner").addClass("showLogoSlow");
+	};
+
+	window.setTimeout( show_banner, 800 );
 });

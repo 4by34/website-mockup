@@ -62,7 +62,7 @@ body {
 }
 
 .navbar {
-    border-bottom: 3px solid #fff; 
+    border-bottom: 3px solid #ed9b09; 
     border-top: 3px solid #fff;
     padding: 0.5rem .75rem;
 }
@@ -80,9 +80,11 @@ body {
   padding-right: 0;
 }
 
-/*#myCarousel h1 {
-  margin-bottom: 80px;
-}*/
+.containerServices {
+  border-left: 1px #fff solid;
+  border-right: 1px #fff solid; 
+  height: 400px;
+}
 
 #nav-list {
   margin-left: -135px;
@@ -182,11 +184,21 @@ span, span small {
   height: 75%;
 }
 
-.containerServices .display-4 {
-  font-size: 2.5rem; 
-  color: #fff; 
+.overlay-middle {
   display: table-cell; 
   vertical-align: middle;
+}
+
+.overlay-middle p {
+  font-weight: bolder; 
+  color: #ed9b09; 
+  font-size: 1.25rem; 
+  margin-top: 1rem;  
+}
+
+.containerServices .display-4 {
+  font-size: 2rem; 
+  color: #fff;
 }
 
 .imgServices {

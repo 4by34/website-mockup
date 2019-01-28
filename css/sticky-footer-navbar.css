@@ -24,6 +24,51 @@
   content: "\e145";
 }
 
+.leadBullet {
+  color: #ed9b09;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+}
+
+#services .display-4 {
+  color: #ed9b09;
+  font-size: 2.5rem;
+}
+
+#servicesList .lead span {
+  color: #ed9b09;
+}
+
+#descriptBox {
+  padding: 2rem; 
+  background-image: url('../images/blueFade.png'); 
+  background-size: cover; 
+  height: 100%;
+}
+
+#servicesList .lead {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#pageBody {
+  margin-top: 68px; 
+  padding-top: 3rem;
+  padding-bottom: 3rem; 
+}
+
+#pageBody .jumbotron {
+  background-size: cover; 
+  height: 100%; 
+  width: 100%;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
 .glyphicon-envelope:before {
   content: "\2709";
 }
@@ -50,7 +95,12 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 250px;
+  margin-bottom: 20rem;
+}
+
+#footerLogo {
+  padding-top: 5px;   
+  text-align: center;
 }
 
 .bg-dark {
@@ -74,7 +124,28 @@ body {
 .navbar-brand {
     padding: 10px 0px;
     margin-right: 0;
+    font-size: 1.1rem;
 }
+
+.navbar-brand img {
+    height: 23px;
+}
+
+.navbar-nav {
+  font-size: .85rem;
+}
+
+.navbar-expand-xl .navbar-nav .nav-link {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+
+.navbar-expand-xl .navbar-nav .french-link {
+    padding-right: 1rem; 
+    padding-left: 1rem;
+}
+
 
 .navbar-collapse {
   padding-right: 0;
@@ -82,17 +153,13 @@ body {
 
 .containerServices {
   border-left: 1px #fff solid;
-  border-right: 1px #fff solid; 
+  border-right: 1px #fff solid;
+  border-bottom: 5px #fff solid; 
   height: 400px;
 }
 
 #nav-list {
   margin-left: -135px;
-}
-
-.french-link {
-  padding-right: 10px; 
-  padding-left: 10px;
 }
 
 .carousel-caption {
@@ -111,10 +178,6 @@ span, span small {
   font-weight: lighter; 
 }
 
-.activateStick {
-  background-color: #fff;
-}
-
 .addShadow {
   box-shadow: 5px 5px 10px #888888;
   -moz-box-shadow: 5px 5px 10px #888888;
@@ -125,26 +188,53 @@ span, span small {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 250px;
+  height: 20rem;
   background-color: #1f2849;
   border-top: 5px solid #ed9b09;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
 }
 
-.footer p { 
-  color: #9d9d9d;
+#footerAddress {
+  border-right: 1px solid #ed9b09;
+}
+
+#footerAddress p {
+  margin: 0; 
+  font-size: .8rem; 
+  color: #fff;
+}
+
+#footerAddress span {
+  color: #ed9b09; 
+  font-weight: normal;
+}
+
+#footerDisclaimer {
+  padding-left: 1rem;
+}
+
+#footerDisclaimer p {
+  color: #b7b4c5; 
+  font-size: .8rem; 
+  line-height: 1.5; 
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+
+#footerCopyright {
+  padding-top: 1rem;
+}
+
+#footerCopyright p {
+  font-size: .7rem; 
+  color: #b7b4c5;
 }
 
 .fade {
-
   -moz-opacity: .8;
   -webkit-opacity: .8;
   filter:alpha(opacity=80);
-}
-
-.stickyBody {
-  padding-bottom: 57px;
 }
 
 .hideLogo {
@@ -213,4 +303,25 @@ span, span small {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
 }
-    
+
+#goBack {
+  margin-top: 1rem;
+}
+
+#goBack a {
+  color: #ed9b09;
+  height: 30px;
+}
+
+#goBack img {
+  display: inline-block; 
+  height: 18px; 
+  vertical-align: middle;
+} 
+
+#goBack p {
+  font-size: 1.25rem;
+  display: inline-block; 
+  vertical-align: middle; 
+  padding-bottom: 3px;
+}  

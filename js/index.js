@@ -1,21 +1,26 @@
+
+jQuery(window).resize(function() {
+	location.reload();
+});
+
 window.onscroll = function() {fixedNav()};
 
-var navOffset = jQuery(".activateStick").offset().top;
+var navbar = document.getElementById("indexNav");
+
+var sticky = navbar.offsetTop;
 
 function fixedNav() {
-	if (window.pageYOffset > navOffset) {
-		jQuery(".activateStick").addClass("fixed-top");
-		jQuery(".pageHeader").addClass("stickyBody");
-		jQuery(".navbar-brand").addClass("showLogo");
-		jQuery(".navbar-brand").removeClass("hideLogo");
-		jQuery(".mainBody").css("margin-top", "72px");
-	} else {
-		jQuery(".activateStick").removeClass("fixed-top");
-		jQuery(".pageHeader").removeClass("stickyBody");
-		jQuery(".navbar-brand").addClass("hideLogo");
-		jQuery(".navbar-brand").removeClass("showLogo");
-		jQuery(".mainBody").css("margin-top", "0");
-	}
+  if (window.pageYOffset > sticky) {
+    navbar.classList.add("fixed-top");
+    jQuery(".navbar-brand").addClass("showLogo");
+    jQuery(".navbar-brand").removeClass("hideLogo");
+    jQuery(".mainBody").css("margin-top", "68px");
+  } else {
+    navbar.classList.remove("fixed-top");
+    jQuery(".navbar-brand").removeClass("showLogo");
+    jQuery(".navbar-brand").addClass("hideLogo");
+    jQuery(".mainBody").css("margin-top", "0");
+  }
 }
 
 jQuery(document).ready(function() {

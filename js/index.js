@@ -33,5 +33,5 @@ jQuery(document).ready(function() {
 });
 
 $( window ).on( "load", function() {
-  window.setTimeout( show_banner, 900 );
+  window.setTimeout( "show_banner", 900 );
 });

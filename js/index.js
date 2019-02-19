@@ -10,8 +10,6 @@ jQuery(document).ready(function() {
 		jQuery("#banner").addClass("showLogoSlow");
 	};
 
-	window.setTimeout( show_banner, 900 );
-
   window.onscroll = function() {fixedNav()};
 
   var navbar = document.getElementById("indexNav");
@@ -34,3 +32,6 @@ jQuery(document).ready(function() {
 
 });
 
+jQuery(document).load(function() {
+  window.setTimeout( show_banner, 900 );
+});  

@@ -5,11 +5,6 @@ jQuery(window).resize(function() {
 
 jQuery(document).ready(function() {
 
-	function show_banner() {
-		jQuery("#banner").removeClass("hideLogo");
-		jQuery("#banner").addClass("showLogoSlow");
-	};
-
   window.onscroll = function() {fixedNav()};
 
   var navbar = document.getElementById("indexNav");
@@ -33,5 +28,10 @@ jQuery(document).ready(function() {
 });
 
 $( window ).on( "load", function() {
-  window.setTimeout( "show_banner", 900 );
+  function show_banner() {
+    jQuery("#banner").removeClass("hideLogo");
+    jQuery("#banner").addClass("showLogoSlow");
+  };
+
+  window.setTimeout( show_banner, 900 );
 });

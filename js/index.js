@@ -32,6 +32,6 @@ jQuery(document).ready(function() {
 
 });
 
-jQuery(document).load(function() {
+$( window ).on( "load", function() {
   window.setTimeout( show_banner, 900 );
-});  
+});

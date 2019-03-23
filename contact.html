@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>CONTACT | SPAPPC</title>
 
@@ -7,7 +7,7 @@
 			Page Head Info
 		================ -->		
 
-		<link rel="icon" type="image/png" href="./images/AP_Logo.png">
+		<link rel="icon" type="image/ico" href="./images/AP_Logo.ico">
 		<link href="./css/bootstrap.css" rel="stylesheet">
 		<link href="./css/sticky-footer-navbar.css" rel="stylesheet">
 
@@ -17,6 +17,15 @@
 		<meta name="description" content="Annie Provost Professional Corporation">
 		<meta name="author" content="Annie Provost">
 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136590086-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-136590086-1');
+		</script>
 
 		<!-- ===============
 			END Page Head Info
@@ -24,7 +33,7 @@
 
 	</head>
 
-	<body>
+	<body >
 
 		<!-- ===============
 			Page Header
@@ -80,95 +89,95 @@
 			END Page Header
 		================ -->
 
-	    <div class="container" id="pageBody" style="padding-top: 1rem;">
+	    <div class="container" id="pageBody" style="padding-top: 1rem; min-height: 575px;">
 	    
-	      <div class="row">
+			<div class="row">
 
-	        <div class="col-lg-6" style="margin-top: 2rem;">
+				<div class="col-lg-6" style="margin-top: 2rem;">
 	        
-	          <div>
-	            <p class="lead" style="font-size: 1.2rem; color: #1f2849;">If you would like to book an appointment or have any questions about our services, please complete the form below.</p>
-	          </div>
+					<div>
+						<p class="lead" style="font-size: 1.2rem; color: #1f2849;">If you would like to book an appointment or have any questions about our services, please complete the form below.</p>
+					</div>
 
-	          <form id="gform">
-	            <div class="form-row">
-	              <div class="form-group col-md-6">
-	                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" >
-	              </div>
-	              <div class="form-group col-md-6">
-	                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" >
-	              </div>
-	            </div>
-	            <div class="form-row">
-	              <div class="form-group col-md-6">
-	                <input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" >
-	              </div>
-	              <div class="form-group col-md-6">
-	                <input type="email" class="form-control" id="inputEmail" placeholder="Email" >
-	              </div>
-	            </div>
-	            <div class="form-group" style="margin-bottom: .5rem;">
-	              <textarea class="form-control" id="inputMessage" rows="3" maxlength="250" placeholder="Message" ></textarea>
-	              <div id="textRemaining" class="text-right lead" style="font-size: .9rem; margin-top: .2rem;">250 characters remaining</div>           
-	            </div>
-	            	
-	            <button type="submit" class="btn btn-outline-primary btn-lg" id="submitInfo" style="margin-bottom: 1rem;">Submit</button>
-	            <p class="lead" style="font-size: 1.2rem; color: #1f2849;">To safeguard your personal information, please do not include any confidential or sensitive information in your message.</p>
-	            
-	          </form>
-	        </div>
-
-	        <div class="col-lg-2">
-	        </div>
-
-	        <div class="col-lg-4"  style="text-align: top; border: 5px #ed9b09 solid; padding: 1.5rem 1.5rem; background-color: #1f2849; border-radius: 1.25rem; height: 460px; margin-top: 2rem;">
-
-	            <div>
-					<p style="margin: 0; font-size: 1.1rem; color: #fff;">Annie Provost Professional Corporation</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">102 - 2303 Laurier Street</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">P.O. Box 876</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">Rockland, Ontario K4K 1L5</p>
-	            </div>
-
-				<div style="margin-top: 2rem;">
-					<div class="row" style="height: 28px;">
-						<div class="col-2" style="text-align: right;">
-							<img src="./images/contact_phone.png" style="width: 95%;">
+					<form id="gform" action="./gdform.php" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="subject" value="Contact Form Submission" />
+						<input type="hidden" name="redirect" value="thankyou.html" />
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="First_Name" />
+							</div>
+							<div class="form-group col-md-6">
+								<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="Last_Name" />
+							</div>
 						</div>
-						<div class="col-7" style="padding-left: 0;">
-							<a href="tel:+1-613-446-2777" class="lead" style="font-size: 1.1rem; color: #fff;">613.446.2777</a>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" name="Phone_Number" />
+							</div>
+							<div class="form-group col-md-6">
+								<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="Email" />
+							</div>
+						</div>
+						<div class="form-group" style="margin-bottom: .5rem;">
+							<textarea class="form-control" id="inputMessage" rows="3" maxlength="250" placeholder="Message" name="Message"></textarea>
+							<div id="textRemaining" class="text-right lead" style="font-size: .9rem; margin-top: .2rem;">250 characters remaining</div>           
+						</div>
+
+						<button type="submit" class="btn btn-outline-primary btn-lg" id="submitMsg" name="submit" style="margin-bottom: 1rem;">Submit</button>
+						<p class="lead" style="font-size: 1.2rem; color: #1f2849;">To safeguard your personal information, please do not include any confidential or sensitive information in your message.</p>
+					</form>
+	        	</div>
+
+				<div class="col-lg-2">
+				</div>
+
+				<div class="col-lg-4"  style="text-align: top; border: 5px #ed9b09 solid; padding: 1.5rem 1.5rem; background-color: #1f2849; border-radius: 1.25rem; height: 460px; margin-top: 2rem;">
+
+		            <div>
+						<p style="margin: 0; font-size: 1.1rem; color: #fff;">Annie Provost Professional Corporation</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">102 - 2303 Laurier Street</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">P.O. Box 876</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">Rockland, Ontario K4K 1L5</p>
+		            </div>
+
+					<div style="margin-top: 2rem;">
+						<div class="row" style="height: 28px;">
+							<div class="col-2" style="text-align: right;">
+								<img src="./images/contact_phone.png" style="width: 95%;">
+							</div>
+							<div class="col-7" style="padding-left: 0;">
+								<a href="tel:+1-613-446-2777" class="lead" style="font-size: 1.1rem; color: #fff;">613.446.2777</a>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: .5rem;">
+							<div class="col-2" style="text-align: right; height: 28px;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img src="./images/contact_fax.png" style="width: 100%; vertical-align: middle;">
+							</div>
+							<div class="col-7" style="padding-left: 0;">
+								<p class="lead" style="font-size: 1.1rem; color: #fff; margin-bottom: 0;">613.446.2779</p>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: .5rem; height: 28px;">
+							<div class="col-2" style="text-align: right; height: 100%; vertical-align: middle;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img src="./images/email.png" style="width: 100%; vertical-align: middle;">
+							</div>
+							<div class="col-7" style="padding-left: 0;">
+								<a href="mailto:annie@spappc.ca?Subject=Legal%20Services" class="lead" style="font-size: 1.1rem; color: #fff;">annie@spappc.ca</a>
+							</div>
 						</div>
 					</div>
 
-					<div class="row" style="margin-top: .5rem;">
-						<div class="col-2" style="text-align: right; height: 28px;">
-							<span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img src="./images/contact_fax.png" style="width: 100%; vertical-align: middle;">
-						</div>
-						<div class="col-7" style="padding-left: 0;">
-							<p class="lead" style="font-size: 1.1rem; color: #fff; margin-bottom: 0;">613.446.2779</p>
-						</div>
-					</div>
-
-					<div class="row" style="margin-top: .5rem; height: 28px;">
-						<div class="col-2" style="text-align: right; height: 100%; vertical-align: middle;">
-							<span style="display: inline-block; height: 100%; vertical-align: middle;"></span><img src="./images/email.png" style="width: 100%; vertical-align: middle;">
-						</div>
-						<div class="col-7" style="padding-left: 0;">
-							<a href="mailto:annie@spappc.ca?Subject=Legal%20Services" class="lead" style="font-size: 1.1rem; color: #fff;">annie@spappc.ca</a>
-						</div>
+					<div style="margin-top: 2rem;">
+						<p style="margin: 0; font-size: 1.1rem; color: #fff;">Business Hours:</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">Monday to Friday</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">9:00 a.m. - 12:00 p.m.</p>
+						<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">1:00 p.m. - 5:00 p.m.</p>
 					</div>
 				</div>
 
-				<div style="margin-top: 2rem;">
-					<p style="margin: 0; font-size: 1.1rem; color: #fff;">Business Hours:</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">Monday to Friday</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">9:00 a.m. - 12:00 p.m.</p>
-					<p class="lead" style="margin: 0; font-size: 1.1rem; color: #fff;">1:00 p.m. - 5:00 p.m.</p>
-				</div>
 			</div>
-
-
-	      </div>
 	    </div>
 
 		<!-- ===============
@@ -228,8 +237,32 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     	<script src="./js/jquery.min.js"></script>
     	<script src="./js/popper.min.js"></script>
-    	<script src="./js/bootstrap.min.js"></script>		
-    	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    	<script src="./js/bootstrap.min.js"></script>
+
+		<script>
+
+			$(document).ready(function () {
+
+				$('#inputMessage').keypress(function (event) {
+					var max = 250;
+					var len = $(this).val().length;
+
+					if (len >= max) {
+						event.preventDefault();
+					}
+				});
+
+				$('#inputMessage').keyup(function (event) {
+					var max = 250;
+					var len = $(this).val().length;
+					var char = max - len;
+
+					$('#textRemaining').text(char + ' characters remaining');
+				});
+
+			});
+
+		</script>
 		
 		<!-- ===============
 		   END Page Script Info

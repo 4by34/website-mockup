@@ -1,0 +1,49 @@
+{
+  "spreadsheetId": "1bu03g87EVXgHJEkgmrUEMkHhzoNszMmmws8flboHN-k",
+  "namedRanges": [
+    {
+      "type": "fields",
+      "name": "basicData"
+    },
+    {
+      "type": "fields",
+      "name": "companyData"
+    },
+    {
+      "type": "list",
+      "name": "bio"
+    },
+    {
+      "type": "list",
+      "name": "services"
+    },
+    {
+      "type": "list",
+      "name": "servicesList1"
+    },
+    {
+      "type": "list",
+      "name": "servicesList2"
+    },
+    {
+      "type": "list",
+      "name": "edu"
+    },
+    {
+      "type": "list",
+      "name": "aop"
+    },
+    {
+      "type": "list",
+      "name": "pa"
+    },
+    {
+      "type": "list",
+      "name": "contactAddNote"
+    },
+    {
+      "type": "list",
+      "name": "locations"
+    }
+  ]
+}

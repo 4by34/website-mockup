@@ -21,81 +21,188 @@
 			END Page Head Info
 		================ -->
 
+		<style>
+			#items{ margin:0; padding:0; }
+		/* hide all items initially */
+			#items span{ display:none; margin: 0;}
+		/* show the item that has the 'show' class */
+			#items span.show{ display: block; }
+
+			span {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+			}
+
+			#quote {
+				position: absolute; 
+				vertical-align: top;
+				text-align: left;
+				z-index: -1;
+			}
+
+			.btn-secondary {
+			    color: #fff;
+			    background-color: #1f2849;
+			    border-color: #1f2849;
+			}
+
+		</style> 
+
 	</head>
 
 	<body>
 
-		<div class="container" style="min-height: 10rem;">
-			<div class="row">
-				<div class="col-3">
-						<h1>Travel Today USA</h1>
+		<div class="carousel-inner">
+			<div class="carousel-item active" style="max-height: calc(100vh - 68px);">
+				<img class="first-slide d-block w-100" src="./images/bannar.jpg" alt="xxx">
+				<div class="container">
+					<div class="carousel-caption rounded" style="background-color:  rgba(22, 40, 73, 0.6); padding: 3rem; margin-bottom: 5rem;">
+						<div class="row text-center">
+							<h1 style="font-size: 3.5rem; margin: 0 auto 3rem;"><strong>TRAVEL TODAY USA</strong></h1>
+						</div>
+
+						<div class="row">
+
+							<div class="col-lg-7 text-center">
+								<h1>Canadian Pardons</h1>
+								<h1>U.S. Entry Waiver Applications</h1>
+								<br>
+								<h4>Sed ut perspiciatis, unde omnis iste natus!</h4>
+								<br>
+								<h3>Call toll free</h3>
+								<h3>1 (800) 123-4567</h3>
+								
+							</div>
+
+							<div class="col-lg-5" >
+				        
+								<div>
+									<p class="lead" style="font-size: 1.2rem; color: #fff; text-align: left;">Complete the information below to help us determine if you qualify.</p>
+								</div>
+
+								<form id="gform" action="./gdform.php" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="subject" value="Contact Form Submission" />
+									<input type="hidden" name="redirect" value="thankyou.html" />
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="First_Name" />
+										</div>
+										<div class="form-group col-md-6">
+											<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="Last_Name" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" name="Phone_Number" />
+										</div>
+										<div class="form-group col-md-8">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="Email" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-12">
+											<select class="form-control" id="inputService">
+												<option selected>Conviction Date</option>
+												<option>Before 2008</option>
+												<option>After 2008</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-12">
+											<select class="form-control" id="inputService">
+												<option selected>Requested Service</option>
+												<option>Pardon/Record Suspension</option>
+												<option>U.S. Entry Waiver</option>
+												<option>Criminal File Destruction</option>
+												<option>VISA/Passport</option>
+												<option>Canadian Border/Entry Permit</option>
+											</select>
+										</div>
+									</div>
+
+									<button type="submit" class="btn btn-outline-primary btn-lg" id="submitMsg" name="submit" style="">Submit</button>
+									
+								</form>
+				        	</div>
+				        </div>
+
+
+
+					</div>
 				</div>
-				<div class="col-6" style="text-align: center;">
-					<img src="./images/logo.jpg" alt="{{co_Name}}" height="150" >
-				</div>
-				<div class="col-3">
-						<p>co_Phone</p>
-						<p>co_Email</p>
-				</div>
+
 			</div>
 		</div>
 
 
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="indexNav">
-			<div class="container">
-				<div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-				</div>
-		    
-				<div class="collapse navbar-collapse justify-content-center">
-					<ul class="navbar-nav" id="nav-list">
-						<li class="nav-item">
-							<a class="nav-link active" href="{{nav1_link}}">{{nav1}}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{nav2_link}}">{{nav2}}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{nav3_link}}">{{nav3}}</a>
-						</li>
-					</ul>
-				</div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="indexNav">
+			<a class="navbar-brand hideLogo" href="#"><strong>Travel Today USA</strong></a>
+			<div class="container justify-content-center">
+				<ul class="navbar-nav" id="nav-list">
+					<li class="nav-item">
+						<a class="nav-link active" href="{{nav1_link}}">{{nav1}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{nav2_link}}">{{nav2}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{nav3_link}}">{{nav3}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{nav4_link}}">{{nav4}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{nav5_link}}">{{nav5}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{nav5_link}}">{{nav6}}</a>
+					</li>
+				</ul>
 
-				<a class="navbar-brand hideLogo" href="{{nav1_link}}">
-					<img src="./images/logo_text.png" height="50" alt="{{co_Name}}">
-				</a>
-
-				<div class="collapse navbar-collapse justify-content-end">
-					<ul class="navbar-nav" id="nav-list">
-						<li class="nav-item">
-							<a class="nav-link" href="{{nav4_link}}">{{nav4}}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{nav5_link}}">{{nav5}}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{nav5_link}}">{{nav6}}</a>
-						</li>
-					</ul>
-				</div>
 			</div>
-
+			<div class="text-right">
+				<button class="btn btn-outline-light" type="submit">Free Consultation</button>
+			</div>
 		</nav>
 
 
 
 		<div class="container mainBody">
-			<div class="position-relative overflow-hidden text-center bg-light">  
-				<div class="row" style="width: 100%; margin: 0; background-color: #1f2849;" >
+
+			<div style="background-color: #f4f4f7; padding-top: 3rem; padding-bottom: 3rem; margin-top: calc(1rem - 5px);">
+				<div id="items" style="text-align: center; height: 8rem; line-height: 8rem;">
+					<span class="show"><h1 style="font-weight: lighter;">Are your criminal convictions or charges preventing you from moving on with your life?</h1></span>
+					<span><h1 style="font-weight: lighter;">Trouble finding employment?</h1></span>
+					<span><h1>Contact Us Today and Regain Your Freedom!</h1></span>
+					<span><h1 style="font-weight: lighter;">Difficulties travelling?</h1></span>
+					<span><h1 style="font-weight: lighter;">Having trouble with border officials?</h1></span>
+					<span><h1>Contact Us Today and Regain Your Freedom!</h1></span>
+					<span><h1 style="font-weight: lighter;">Unable to obtain citizenship?</h1></span>
+					<span><h1 style="font-weight: lighter;">Denied custody of your children?</h1></span>
+					<span><h1>Contact Us Today and Regain Your Freedom!</h1></span>
+				</div>
+			</div>
+			<hr>
+			<div class="row" style="margin-top: 2rem;">
+				<div class="col-12">
+					<h1 style="margin-bottom: 1rem;">Services</h1>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+				</div>
+
+			</div>
+
+
+			 
+				<div class="row text-center" style="width: 100%; margin: 0; background-color: #1f2849;" >
 					<div class="col-sm-4 containerServices">
 						<div class="imgServices" style="background-image: url('./images/home_family.jpg'); background-position: center;">
 						</div>
-						<a class="card-img-overlay" href="./familylaw.html">
+						<a class="card-img-overlay" href="#">
 							<div class="overlay-middle">
 								<h1 class="display-4"><strong>Canadian Pardon</strong></h1>
-								<p>Read more</p>
 							</div>
 						</a>
 					</div>
@@ -103,10 +210,9 @@
 					<div class="col-sm-4 containerServices">
 						<div class="imgServices" style="background-image: url('./images/home_wills.jpg'); background-position: center;">
 						</div>
-						<a class="card-img-overlay" href="./wills_estates.html">
+						<a class="card-img-overlay" href="#">
 							<div class="overlay-middle">
 								<h1 class="display-4"><strong>U.S. Entry Waiver</strong></h1>
-								<p>Read more</p>
 							</div>
 						</a>
 					</div>
@@ -114,173 +220,83 @@
 					<div class="col-sm-4 containerServices">
 						<div class="imgServices" style="background-image: url('./images/home_notary.jpg'); background-position: center;">
 						</div>
-						<a class="card-img-overlay" href="./notary.html">
+						<a class="card-img-overlay" href="#">
 							<div class="overlay-middle">
 								<h1 class="display-4"><strong>Record Expunegment</strong></h1>
-								<p>Read more</p>
 							</div>
 						</a>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="container" style="text-align: center;">
-
-			<h2>Trouble finding employment?</h2>
-			<h2>Difficulties with travel and border officials?</h2>
-
-			<hr>
-			<h2>Contact Us Today and Regain Your Freedom!</h2>
-			<hr>
-
-		</div>
-
-
-		<div class="container" style="margin-top: 1rem; margin-bottom: 1rem;">
-	    
-			<div class="row">
-
-				<div class="col-lg-7">
-					<img src="./images/index1.jpg" class="d-inline-block align-top" alt="{{co_Name}}" style="width: 100%;"">
-				</div>
-
-				<div class="col-lg-5">
-	        
-					<div>
-						<p class="lead" style="font-size: 1.2rem; color: #1f2849;">Complete the information below to help us determine if you qualify.</p>
+  
+				<div class="row text-center" style="width: 100%; margin: 0; background-color: #1f2849;" >
+					<div class="col-sm-4 containerServices">
+						<div class="imgServices" style="background-image: url('./images/home_family.jpg'); background-position: center;">
+						</div>
+						<a class="card-img-overlay" href="#">
+							<div class="overlay-middle">
+								<h1 class="display-4"><strong>Police Clearance</strong></h1>
+							</div>
+						</a>
 					</div>
 
-					<form id="gform" action="./gdform.php" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="subject" value="Contact Form Submission" />
-						<input type="hidden" name="redirect" value="thankyou.html" />
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="First_Name" />
-							</div>
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="Last_Name" />
-							</div>
+					<div class="col-sm-4 containerServices">
+						<div class="imgServices" style="background-image: url('./images/home_wills.jpg'); background-position: center;">
 						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" name="Phone_Number" />
+						<a class="card-img-overlay" href="#">
+							<div class="overlay-middle">
+								<h1 class="display-4"><strong>Background Check</strong></h1>
 							</div>
-							<div class="form-group col-md-6">
-								<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="Email" />
-							</div>
+						</a>
+					</div>
+
+					<div class="col-sm-4 containerServices">
+						<div class="imgServices" style="background-image: url('./images/home_notary.jpg'); background-position: center;">
 						</div>
-						<div class="form-row">
-							<div class="form-group col-md-12">
-								<select class="form-control" id="inputService">
-									<option selected>Conviction Date</option>
-									<option>Before 2008</option>
-									<option>After 2008</option>
-								</select>
+						<a class="card-img-overlay" href="#">
+							<div class="overlay-middle">
+								<h1 class="display-4"><strong>Record Destruction</strong></h1>
 							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-12">
-								<select class="form-control" id="inputService">
-									<option selected>Service</option>
-									<option>Pardon/Record Suspension</option>
-									<option>U.S. Entry Waiver</option>
-									<option>Criminal File Destruction</option>
-									<option>VISA/Passport</option>
-									<option>Canadian Border/Entry Permit</option>
-								</select>
-							</div>
-						</div>
-
-						<button type="submit" class="btn btn-outline-primary btn-lg" id="submitMsg" name="submit" style="">Submit</button>
-						
-					</form>
-	        	</div>
-	        </div>
-	    </div>
-
-		<div class="container">
-
-			<h1>QUALIFY FOR A PARDON TODAY</h1>
-			<p>Federal Pardon Waiver Services assists individuals in obtaining a Canadian Pardon (Record Suspension) by removing a past criminal offence from public record in Canada. We also help individuals obtain U.S. Entry Waivers and Arrest Record Purges (Criminal Record Expungement).</p>
-
-			<p>Our Pardons Canada head office is based out of Toronto, Ontario where we have over 20 years of combined proven experience in providing our clients a hassle-free Pardons and Waivers services that ensures that the highest standards for trust are set and maintained! This has made Federal Pardon Waiver Services the fastest growing and largest Pardon and Waiver providers in Canada.</p>
-
-			<p>By staying up-to-date with all the legislative and procedural changes concerning both Canadian Pardon (Record Suspension) and U.S. Entry Waiver applications and by working on and submitting nearly 10,000 applications per year, we have the experience and competence to provide the fastest and most accurate applications, thus allowing our clients to travel freely and use their skills and capabilities to enrich their lives to the fullest, without the hindrance of a past mistake!</p>
-
-			<p>Every one of our clients is special and so too are their needs. We take great care to make sure that your unique situation is understood and that your application is completed and presented in the best possible light to ensure the best possible outcome! You will never be asked to pay extra for expedited services because all of our clients applications are a priority.</p>
-		</div>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4" style="margin-bottom: 2rem;">
-					<div class="card text-center">
-						<img class="card-img-top" src="./images/service1.jpg" alt="Passport Applications">
-						<div class="card-body">
-							<h4 class="card-title" style="font-weight: 200; margin-bottom: 2rem;">Fingerprinting</h4>
-						</div>	
+						</a>
 					</div>
 				</div>
-				<div class="col-md-4" style="margin-bottom: 2rem;">
-					<div class="card text-center">
-						<img class="card-img-top" src="./images/service1.jpg" alt="Statutory Declarations">
-						<div class="card-body">
-							<h4 class="card-title" style="font-weight: 200; margin-bottom: 2rem;">Remove Record</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4" style="margin-bottom: 2rem;">
-					<div class="card text-center">
-						<img class="card-img-top" src="./images/service1.jpg" alt="Witnessing Signatures">
-						<div class="card-body">
-							<h4 class="card-title" style="font-weight: 200; margin-bottom: 2rem;">Enter The US</h4>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			<div style="text-align: center;">
+
+
+			<div style="text-align: center; margin-top: 2rem;">
 				<a href="#" class="btn btn-secondary">View All Services</a>
 			</div>
 		</div>
 
 
-
-<!-- Removing Your Criminal Record
-Employment, travel, bonding, citizenship, adoption, even peace of mind, are all restricted when you have a criminal record.
-
-Travel To The United States
-No hassle, easy border crossing
-
-Start The Process Now
-Use our simple form above to determine if you are eligible. Your confidentiality is 100% guaranteed! -->
-		
-
-		<div class="container" style="min-height: 20rem; text-align: center;">
+		<div class="container" style="margin-top: 3rem; margin-bottom: 1rem;">		
 			<hr>
-				<h1>Testimonials</h1>
-				<p>Ulric Lalonde</p>
-				<p>“I would like to thank Mario Schaumer at Federal Pardon Waiver Services for keeping on top of things for my son's pardon. The process was seamless. It took a little bit of time but so worth it. If we had any questions Mario was there to answer. He also got back to me in a timely manner after leaving him a message.”</p>
-				<p>* * * *</p>
-				<a href="#" class="btn btn-secondary">Read More Testimonials</a>
-		</div>
+			<div class="row">
+				<div class="col-12">
+					<h1 style="margin-bottom: 1rem;">Qualify For a Pardon Today</h1>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
 
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
 
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
 
-<!-- 		<div style="background-color: #fff;">
-			<div class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
-				<div class="row">
-					<div class="col-lg-3 text-center">
-						<img class="rounded" src="./images/Annie.jpg" alt="Annie Provost" height="300">
-					</div>
-					<div class="col-lg-8 ml-md-auto" style="padding-left: 1rem; margin-top: 1rem;">
-						<h2 style="margin-bottom: 1rem;">Annie Provost <span style="color: #616060;">| Barrister & Solicitor</span></h2>
-						<p>Annie Provost grew up and attended both primary and secondary schools in Rockland. She was called to the Bar of Ontario in September 2009 after earning her Bachelor of Law (LL.B.) degree and her Bachelor of Arts (B.A) degree in Psychology from the University of Ottawa.</p>
-						<a href="./about.html" style="color: #ed9b09;"><strong>Read more</strong></a>
-					</div>
+					<p>At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus!</p>
 				</div>
 			</div>
-		</div> -->
+	
+		</div>
+		
+
+		<div class="container" style="min-height: 20rem; text-align: center; margin-top: 3rem;">
+			<hr>
+				<h1 style="margin-bottom: 2rem;">Testimonials</h1>
+				<p style="margin: 0;">Ulric Lalonde</p>
+				<div id="quote">
+					<img src="./images/quotes3.png" />
+				</div>
+				<p style="margin: 1rem 0;">“At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.”</p>
+
+				<p style="color: #ffaf00; font-size: 2rem;"><strong>* * * *</strong></p>
+				<a href="#" class="btn btn-secondary" style="margin-bottom: 4rem;">Read More Testimonials</a>
+		</div>
 
 		<!-- ===============
 		   Page Footer
@@ -289,43 +305,68 @@ Use our simple form above to determine if you are eligible. Your confidentiality
 		<footer class="footer">
 			<div class="container">
 
-				<div class="row">
+				<div class="row justify-content-md-center text-center">
+					<div class="col-12">
+						<h5 style="color: #fff;">Travel Today USA</h5>
+						<h5 style="color: #fff; font-size: 1rem; font-weight: lighter; margin: 0;">1 (800) 123-4567</h5>
+						<h5 style="color: #fff; font-size: 1rem; font-weight: lighter;margin-bottom: 1.5rem;">info@traveltodayusa.com</h5>
+					</div>
+				</div>
 
-					<div class="col-lg-8 offset-lg-2">
+				<div class="row justify-content-md-center text-center">
+					<div class="col-3">
+						
+					</div>
+					<div class="col-3">
+						
+					</div>
+				</div>
 
-						<div class="row justify-content-md-center">
-
-							<div class="col-2 d-none d-lg-block" id="footerLogo">
-								<img src="./images/{{footer_logo}}" height="75">    
+				<div class="row justify-content-md-center">
+					<div class="col-8">
+						<div class="row">
+							<div class="col-6" id="footerAddress">
+<!-- 								<p>{{co_Name}}</p>
+								<p>{{co_Address1}}</p>
+								<p>{{co_Address2}}</p> -->
+								<!-- <p>{{co_City}}, {{co_Province}}</p>
+								<p>{{co_Country}}</p> -->
+								<!-- <p>{{co_Postal}}</p> -->
+				<div class="row justify-content-md-center" style="">
+					<div class="col-3">
+						<a href="#"><img src="./images/FB-f-Logo__white_114.png" style="width: 2rem;"></a>
+					</div> 
+					<div class="col-3">
+						<a href="#"><img src="./images/glyph-logo_May2016_White.png" style="width: 2rem;"></a>
+					</div>
+					<div class="col-3">
+						<a href="#"><img src="./images/linkedin_logo_128.png" style="width: 2rem;"></a>
+					</div>
+					<div class="col-3">
+						<a href="#"><img src="./images/twitter_logo_128.png" style="width: 2rem;"></a>
+					</div>					
+				</div>
+								
 							</div>
-
-							<div class="col-md-10">
-								<div class="row">
-									<div class="col-md-4 col-6" id="footerAddress">
-										<p>{{co_Name}}</p>
-										<p>{{co_Address1}}</p>
-										<p>{{co_Address2}}</p>
-										<p>{{co_City}}, {{co_Province}}</p>
-										<p>{{co_Country}}</p>
-										<p>{{co_Postal}}</p>
-									</div>
-					
-									<div class="col-md-8 col-6" id="footerDisclaimer">
-										<p>{{disclaimer}}</p>
-									</div>
-								</div>
+			
+							<div class="col-6" id="footerDisclaimer">
+								<p>Toronto, Ontario, Canada</p>
+								<!-- <p>{{disclaimer}}</p> -->
+								<p>This website is for informational purposes only.</p>
 							</div>
-
 						</div>
 					</div>
 				</div>
 
-				<div class="row justify-content-md-center" >
+
+
+
+
+				<div class="row justify-content-md-center" style="margin-top: 1rem;" >
 					<div class="col-12" id="footerCopyright">
 						<p class="text-center">{{copyright_Year}} &copy; {{copyright_Text}}</p>
 					</div>         
 				</div>
-
 			</div>
 		</footer>
 
@@ -342,6 +383,31 @@ Use our simple form above to determine if you are eligible. Your confidentiality
     	<script src="./js/popper.min.js"></script>
     	<script src="./js/bootstrap.min.js"></script>		
 		<script src="./js/index.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				function textloop() {
+					// get the item that currently has the 'show' class
+					var current = $("#items .show");
+					/*
+					* find the next item with some help from jQuery's ternary operator
+					* the syntax for the ternary operator is 'a ? b : c'
+					* in other words 'if a is true return b otherwise return c'
+					*/
+					var next = current.next().length ? current.next() : current.parent().children(':first');
+					// fade out the current item and remove the 'show' class
+					current.fadeOut(3000, function(){
+					// fade in the next item and add the 'show' class
+						next.fadeIn("slow").addClass("show");
+					}).removeClass("show");
+
+					// repeat by calling the textloop method again after 3 seconds
+					setTimeout(textloop,3000);
+				}
+				// call the text loop method when the page loads
+				textloop();
+			});
+    </script>
 
 		<!-- ===============
 		   END Page Script Info

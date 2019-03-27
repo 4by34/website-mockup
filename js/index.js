@@ -1,6 +1,5 @@
-
 jQuery(window).resize(function() {
-	location.reload();
+  location.reload();
 });
 
 jQuery(document).ready(function() {
@@ -16,7 +15,7 @@ jQuery(document).ready(function() {
       navbar.classList.add("fixed-top");
       jQuery(".navbar-brand").addClass("showLogo");
       jQuery(".navbar-brand").removeClass("hideLogo");
-      jQuery(".mainBody").css("margin-top", "68px");
+      jQuery(".mainBody").css("margin-top", "58px");
     } else {
       navbar.classList.remove("fixed-top");
       jQuery(".navbar-brand").removeClass("showLogo");
@@ -27,11 +26,3 @@ jQuery(document).ready(function() {
 
 });
 
-$( window ).on( "load", function() {
-  function show_banner() {
-    jQuery("#banner").removeClass("hideLogo");
-    jQuery("#banner").addClass("showLogoSlow");
-  };
-
-  window.setTimeout( show_banner, 900 );
-});
